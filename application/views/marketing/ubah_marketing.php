@@ -43,13 +43,13 @@
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <select required="required" name="jk" class="form-control col-md-7 col-xs-12">
-                  <?php 
+                  <?php
                       $selected = ($get_marketing[0]->jenis_kelamin == "L") ? 'selected' : '';
                       $selected_p = ($get_marketing[0]->jenis_kelamin == "P") ? 'selected' : '';
                   ?>
                   <option value="">None</option>
                   <option value="L" <?php echo $selected; ?>>Laki - laki</option>
-                  <option value="Perempuan" <?php echo $selected_p; ?>>Perempuan</option>
+                  <option value="P" <?php echo $selected_p; ?>>Perempuan</option>
                 </select>
                    <span class="text-danger"><?php echo form_error('jk'); ?></span>
               </div>

@@ -5,6 +5,8 @@
 class Model_booking extends CI_Model {
 
 	private static $table_booking = 'booking';
+	private static $table_kavling = 'kavling';
+	private static $table_konsumen = 'konsumen';
 
 	public function insert_booking($data){
 		$this->db->insert(self::$table_booking, $data);
@@ -34,5 +36,13 @@ class Model_booking extends CI_Model {
 		$this->db->where('booking_id',$id);
 		$query = $this->db->get(self::$table_booking);
 		return ($query->num_rows() == 1 ) ? true : false;
+	}
+
+	public function get_kavling(){
+		return $this->db->get(self::$table_kavling);
+	}
+
+	public function get_konsumen(){
+	return $this->db->get(self::$table_konsumen);
 	}
 }

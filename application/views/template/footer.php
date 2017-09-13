@@ -10,7 +10,7 @@
         <!-- /footer content -->
       </div>
     </div>
-    
+
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -21,7 +21,7 @@
 
     <?php foreach ($js_source as $value) {
        echo '<script src='.$value.'></script>';
-    } 
+    }
     ?>
 
     <script src="<?php echo base_url(); ?>vendors/nprogress/nprogress.js"></script>
@@ -74,6 +74,18 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>vendors/build/js/custom.min.js"></script>
-	
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var id_konsumen =   $("#konsumen").val();
+        console.log(id_konsumen);
+    });
+    </script>
   </body>
 </html>

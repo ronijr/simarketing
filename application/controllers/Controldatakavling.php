@@ -24,7 +24,9 @@ class Controldatakavling extends CI_Controller {
 	public function create_kavling(){
 		$this->secure->isnot_login_be();
 		$data=array();
+		$this->template->addCss(base_url().'vendors/select2/dist/css/select2.min.css');
 		$this->template->addJs(base_url().'vendors/validator/validator.js');
+		$this->template->addJs(base_url().'vendors/select2/dist/js/select2.min.js');
 		$this->template->backend('kavling/tambah_kavling',$data);
 	}
 
@@ -57,7 +59,7 @@ class Controldatakavling extends CI_Controller {
  			$this->session->set_flashdata('success','Data kavling <b>'.$data_kavling[0]->block.'</b> berhasil dihapus.');
  			put_logs('Menghapus data kavling <strong>'.$data_kavling[0]->block.'</strong>','','kavling');
  			redirect(base_url('controldatakavling'));
- 			
+
 
  		}
 	}
@@ -82,7 +84,7 @@ class Controldatakavling extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
@@ -93,12 +95,12 @@ class Controldatakavling extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
 
-			
+
 
 		           array(
 						'field'	=> 'keterangan',
@@ -124,15 +126,15 @@ class Controldatakavling extends CI_Controller {
 						'no_rumah'				=> $this->input->post('no_rumah'),
 						'tipe'				=> $this->input->post('tipe', TRUE),
 						'keterangan'				=> $this->input->post('keterangan', TRUE),
-						
-						
+
+
 				);
-			
+
 			$this->model_kavling->insert_kavling($data);
 			put_logs('Menambahkan data kavling <strong>'.$this->input->post('block', TRUE).'</strong>','','kavling');
 			$this->session->set_flashdata('success','Data berhasil datambahkan');
 			redirect(base_url().'controldatakavling/create_kavling');
-			
+
 		}
 
 	}
@@ -158,7 +160,7 @@ class Controldatakavling extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
@@ -169,12 +171,12 @@ class Controldatakavling extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
 
-			
+
 
 		           array(
 						'field'	=> 'keterangan',
@@ -202,13 +204,13 @@ class Controldatakavling extends CI_Controller {
 						'no_rumah'				=> $this->input->post('no_rumah'),
 						'tipe'				=> $this->input->post('tipe', TRUE),
 						'keterangan'				=> $this->input->post('keterangan', TRUE),
-						
-						
+
+
 				);
-			
-			
-			
-			
+
+
+
+
 			$this->model_kavling->update_kavling($id,$data);
 			$this->session->set_flashdata('success','Data berhasil diubah');
 			put_logs('Mengubah data kavling <strong>'.$this->input->post('block', TRUE).'</strong>','','kavling');
