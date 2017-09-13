@@ -33,7 +33,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nama Konsumen <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nama" placeholder="Nama"  value="<?php echo set_value('nama'); ?>" required="required" type="text">
+                <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"  name="nama" placeholder="Nama"  value="<?php echo set_value('nama'); ?>" required="required" type="text">
                 <span class="text-danger"><?php echo form_error('nama'); ?></span>
               </div>
             </div>
