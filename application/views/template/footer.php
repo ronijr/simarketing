@@ -83,8 +83,23 @@
 
     <script type="text/javascript">
     $(document).ready(function(){
-        var id_konsumen =   $("#konsumen").val();
-        console.log(id_konsumen);
+
+        $("#konsumen").change(function(){
+          var id = $(this).val();
+          $.ajax({
+            url:"<?php echo base_url(); ?>"+"controldatabooking/get_konsumen",
+            type:"GET",
+            data:{id:id},
+            dataType:'json',
+            success:function(res){
+              $(".alamat").val(res.alamat);
+              $(".telepon").val(res.no_tlp);
+              $(".pekerjaan").val(res.pekerjaan);
+              // console.log(res);
+            }
+          })
+        })
+
     });
     </script>
   </body>

@@ -41,7 +41,7 @@
                           <th>No Rumah</th>
                           <th>Tipe</th>
                           <th>Status</th>
-                          <th>Keterangan</th>
+                          
                         </tr>
                       </thead>
 
@@ -62,7 +62,7 @@
                                 <td>".$row->no_rumah."</td>
                                 <td>".$row->tipe."</td>
                                 <td>".$status."</td>
-                                <td>".$row->keterangan."</td>
+
                               </tr>
                             ";
                           }

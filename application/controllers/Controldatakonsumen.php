@@ -14,8 +14,9 @@ class Controldatakonsumen extends CI_Controller {
 
 	public function list_konsumen(){
 		$this->secure->isnot_login_be();
+			$data_user = $this->model_konsumen->get_user($this->session->userdata('uname_admin'))->result();
 			$data= array(
-				'result'	=> $this->model_konsumen->select_konsumen()->result(),
+				'result'	=> $this->model_konsumen->select_konsumen($data_user[0]->us_id,$data_user[0]->us_level)->result(),
 			);
 		$this->template->backend('konsumen/lihat_konsumen',$data);
 	}
@@ -56,7 +57,7 @@ class Controldatakonsumen extends CI_Controller {
  			$this->session->set_flashdata('success','Data konsumen <b>'.$data_konsumen[0]->nama_konsumen.'</b> berhasil dihapus.');
  			put_logs('Menghapus data konsumen <strong>'.$data_konsumen[0]->nama_konsumen.'</strong>','','konsumen');
  			redirect(base_url('controldatakonsumen'));
- 			
+
 
  		}
 	}
@@ -81,7 +82,7 @@ class Controldatakonsumen extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
@@ -92,12 +93,12 @@ class Controldatakonsumen extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
 
-			
+
 
 		           array(
 						'field'	=> 'phone',
@@ -128,20 +129,22 @@ class Controldatakonsumen extends CI_Controller {
 			$this->create_konsumen();
 
 		} else{
+				$data_user = $this->model_konsumen->get_user($this->session->userdata('uname_admin'))->result();
 				$data = array(
 						'nama_konsumen'			=> $this->input->post('nama', TRUE),
 						'pekerjaan'				=> $this->input->post('pekerjaan'),
 						'no_tlp'				=> $this->input->post('phone', TRUE),
-						'alamat'				=> $this->input->post('alamat', TRUE),
+						'alamat_konsumen'				=> $this->input->post('alamat', TRUE),
 						'jenis_kelamin'			=> $this->input->post('jk'),
-						
+						'us_fk_id'			=> $data_user[0]->us_id,
+
 				);
-			
+
 			$this->model_konsumen->insert_konsumen($data);
 			put_logs('Menambahkan data konsumen <strong>'.$this->input->post('nama', TRUE).'</strong>','','konsumen');
 			$this->session->set_flashdata('success','Data berhasil datambahkan');
 			redirect(base_url().'controldatakonsumen/create_konsumen');
-			
+
 		}
 
 	}
@@ -167,7 +170,7 @@ class Controldatakonsumen extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
@@ -178,12 +181,12 @@ class Controldatakonsumen extends CI_Controller {
 						'rules'	=> 'required|trim',
 						'errors' => array(
 								'required'	=> '%s Tidak boleh kosong',
-								
+
 							)
 
 					),
 
-			
+
 
 		           array(
 						'field'	=> 'phone',
@@ -215,18 +218,20 @@ class Controldatakonsumen extends CI_Controller {
 			$this->update_konsumen($id);
 
 		} else{
-			$data="";
+
+
 				$data = array(
 						'nama_konsumen'			=> $this->input->post('nama', TRUE),
 						'pekerjaan'				=> $this->input->post('pekerjaan'),
 						'no_tlp'				=> $this->input->post('phone', TRUE),
-						'alamat'				=> $this->input->post('alamat', TRUE),
+						'alamat_konsumen'				=> $this->input->post('alamat', TRUE),
 						'jenis_kelamin'			=> $this->input->post('jk'),
-						
+
+
 				);
-			
-			
-			
+
+
+
 			$this->model_konsumen->update_konsumen($id,$data);
 			$this->session->set_flashdata('success','Data berhasil diubah');
 			put_logs('Mengubah data konsumen <strong>'.$this->input->post('nama', TRUE).'</strong>','','konsumen');

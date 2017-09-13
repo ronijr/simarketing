@@ -35,26 +35,36 @@
                    <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
-                          <th>Start date</th>
-                          <th>Salary</th>
+                          <th>Nama Konsumen</th>
+
+                          <th>Pekerjaan</th>
+                          <th>Telepon</th>
+                          <th>Alamat</th>
+                          <th>Block dan No Rumah</th>
+                          <th>Tanggal</th>
+                          <th>Marketing</th>
                         </tr>
                       </thead>
 
 
                       <tbody>
+                        <?php
+                          foreach ($result as $row) {
+                            echo "
+                              <tr>
+                                <td>".$row->nama_konsumen."</td>
+                                <td>$row->pekerjaan</td>
+                                <td>".$row->no_tlp."</td>
+                                <td>".$row->alamat."</td>
+                                <td>".$row->block." - ".$row->no_rumah."</td>
+                                <td>$row->tanggal</td>
+                                <td>$row->us_name</td>
+                              </tr>
+                            ";
+                          }
 
-                        <tr>
-                          <td>Donna Snider</td>
-                          <td>Customer Support</td>
-                          <td>New York</td>
-                          <td>27</td>
-                          <td>2011/01/25</td>
-                          <td>$112,000</td>
-                        </tr>
+                         ?>
+
 
                       </tbody>
                     </table>

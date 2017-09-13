@@ -32,11 +32,9 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Nama Konsumen <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <select id="konsumen" equired="required" name="jk" class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                <select id="konsumen" equired="required" name="konsumen_id" class="form-control col-md-7 col-xs-12 js-example-basic-single">
                   <option value="">Nama Konsumen</option>
                   <?php
-
-
                       foreach ($get_konsumen as $row) {
                         echo "<option value=".$row->konsumen_id.">".$row->nama_konsumen."</option>";
                       }
@@ -47,14 +45,7 @@
                    <span class="text-danger"><?php echo form_error('jk'); ?></span>
               </div>
             </div>
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Alamat <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <textarea id="textarea" required="required" name="alamat" class="form-control col-md-7 col-xs-12 alamat"><?php echo set_value('alamat'); ?></textarea>
-                   <span class="text-danger"><?php echo form_error('alamat'); ?></span>
-              </div>
-            </div>
+
               <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Pekerjaan<span class="required">*</span>
               </label>
@@ -72,10 +63,18 @@
               </div>
             </div>
             <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Alamat <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <textarea id="textarea" required="required" name="alamat" class="form-control col-md-7 col-xs-12 alamat"><?php echo set_value('alamat'); ?></textarea>
+                   <span class="text-danger"><?php echo form_error('alamat'); ?></span>
+              </div>
+            </div>
+            <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Block <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <select required="required" name="jk" class="form-control col-md-7 col-xs-12 js-example-basic-single">
+                <select required="required" name="block" class="form-control col-md-7 col-xs-12 js-example-basic-single">
                   <option value="">None</option>
                   <?php
 

@@ -44,7 +44,7 @@
                 <span class="text-danger"><?php echo form_error('no_rumah'); ?></span>
               </div>
             </div>
-            
+
               <div class="item form-group">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Tipe<span class="required">*</span>
               </label>
@@ -53,14 +53,7 @@
                 <span class="text-danger"><?php echo form_error('tipe'); ?></span>
               </div>
             </div>
-          <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Keterangan <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <textarea id="textarea" required="required" name="keterangan" class="form-control col-md-7 col-xs-12"><?php echo $get_kavling[0]->keterangan; ?></textarea>
-                   <span class="text-danger"><?php echo form_error('keterangan'); ?></span>
-              </div>
-            </div>
+        
             <div class="ln_solid"></div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">

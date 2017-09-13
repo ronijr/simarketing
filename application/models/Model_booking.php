@@ -7,6 +7,7 @@ class Model_booking extends CI_Model {
 	private static $table_booking = 'booking';
 	private static $table_kavling = 'kavling';
 	private static $table_konsumen = 'konsumen';
+	private static $table_user = 'users';
 
 	public function insert_booking($data){
 		$this->db->insert(self::$table_booking, $data);
@@ -26,6 +27,16 @@ class Model_booking extends CI_Model {
 		return $this->db->get(self::$table_booking);
 	}
 
+	public function select_booking_join(){
+		$this->db->select("*");
+		$this->db->from(self::$table_booking);
+		$this->db->join(self::$table_kavling, self::$table_kavling.'.kavling_id='.self::$table_booking.'.kavling_fk_id','INNER');
+		$this->db->join(self::$table_konsumen, self::$table_konsumen.'.konsumen_id='.self::$table_booking.'.konsumen_fk_id','INNER');
+		$this->db->join(self::$table_user, self::$table_user.'.us_id='.self::$table_booking.'.us_fk_id','INNER');
+		$this->db->order_by('tanggal','ASC');
+		return $this->db->get();
+	}
+
 	public function select_booking_byid($id){
 		$this->db->where('booking_id',$id);
 		return $this->db->get(self::$table_booking);
@@ -39,10 +50,24 @@ class Model_booking extends CI_Model {
 	}
 
 	public function get_kavling(){
+		$this->db->where('status',0);
 		return $this->db->get(self::$table_kavling);
 	}
 
 	public function get_konsumen(){
 	return $this->db->get(self::$table_konsumen);
 	}
+
+	public function get_konsumen_byid($id){
+	$this->db->where('konsumen_id',$id);
+	return $this->db->get(self::$table_konsumen);
+	}
+
+	public function get_user($username){
+		$this->db->where('us_uname',$username);
+		return $this->db->get(self::$table_user);
+	}
+
+	
+
 }

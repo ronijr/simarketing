@@ -17,10 +17,10 @@
     <link href="<?php echo base_url(); ?>vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="<?php echo base_url(); ?>vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	  
+
     <?php foreach ($css_source as $value) {
        echo '<link href='.$value.' rel="stylesheet">';
-    } 
+    }
     ?>
 
     <link href="<?php echo base_url(); ?>vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -53,9 +53,9 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
+              <!-- <div class="profile_pic">
                 <img src="<?php echo base_url(); ?>media/images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
+              </div> -->
               <div class="profile_info">
                 <span>Welcome,</span>
                 <h2><?php echo $admin[0]->us_name; ?></h2>

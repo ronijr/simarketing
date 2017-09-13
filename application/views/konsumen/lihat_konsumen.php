@@ -4,7 +4,7 @@
                 <h3>List Data Konsumen</h3>
               </div>
 
-              
+
               </div>
             </div>
 
@@ -43,19 +43,20 @@
                           <th>Pekerjaan</th>
                           <th>Telepon</th>
                           <th>Alamat</th>
+                          <th>Marketing</th>
                         </tr>
                       </thead>
 
 
                       <tbody>
-                        <?php 
+                        <?php
                         $no=1;
                           foreach ($result as $row) {
                             $jk = ($row->jenis_kelamin == "L") ? "Laki-laki" : "Perempuan";
 
                             echo "
                                 <tr>
-                 
+
                                   <td>".$no."</td>
                                   <td>
                                      <a href=".base_url('controldatakonsumen/delete_konsumen/'.$row->konsumen_id)." title='Hapus' onclick='return ((confirm(\"Yakin hapus data studio ".$row->nama_konsumen." ?\"))) ? true : false;' class='btn btn-xs btn-default'><i class='fa fa-remove'></i></a>
@@ -65,16 +66,17 @@
                                   <td>".$jk."</td>
                                   <td>".$row->pekerjaan."</td>
                                   <td>".$row->no_tlp."</td>
-                                  <td>".$row->alamat."</td>
-                            
+                                  <td>".$row->alamat_konsumen."</td>
+                                  <td>".$row->us_name."</td>
+
                                </tr>
                             ";
 
                             $no++;
                           }
                         ?>
-                      
-                        
+
+
                       </tbody>
                     </table>
                   </div>
